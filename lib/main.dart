@@ -50,6 +50,7 @@ class LandmarkSelectionScreen extends StatelessWidget {
         title: Center(
           child: Text('What do you want to see?'),
         ),
+        backgroundColor: Color(0xffFFFFFF), // Background color of the app bar
         actions: [
           IconButton(
             icon: Icon(Icons.close),
@@ -69,7 +70,9 @@ class LandmarkSelectionScreen extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: "Enter the landmark's name",
-                      prefixIcon: Icon(Icons.search),
+                      prefixIcon: Icon(Icons.search,
+                          color: Color.fromRGBO(219, 113, 0,
+                              1)), // Color of the icon beside search bar
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8.0),
                       ),
@@ -77,7 +80,9 @@ class LandmarkSelectionScreen extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.map),
+                  icon: Icon(Icons.map,
+                      color: Color.fromRGBO(
+                          219, 113, 0, 1)), // Color of the map icon
                   onPressed: () {
                     // Implement the map action
                   },
@@ -115,7 +120,9 @@ class LandmarkSelectionScreen extends StatelessWidget {
                       title: Text(landmarks[index]['name']!),
                       subtitle: Text(landmarks[index]['description']!),
                       trailing: IconButton(
-                        icon: Icon(Icons.add),
+                        icon: Icon(Icons.add,
+                            color: Color.fromRGBO(
+                                219, 113, 0, 1)), // Color of the '+' button
                         onPressed: () {
                           // Implement the add action
                         },
@@ -136,11 +143,17 @@ class LandmarkSelectionScreen extends StatelessWidget {
                 );
               },
               child: Text('Next 1'),
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Color.fromRGBO(
+                        219, 113, 0, 1)), // Color of the "Next 1" button
+                shape: MaterialStateProperty.all<OutlinedBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
                 ),
+                minimumSize:
+                    MaterialStateProperty.all<Size>(Size(double.infinity, 50)),
               ),
             ),
           ],
@@ -216,11 +229,17 @@ class SelectedLandmarksScreen extends StatelessWidget {
                 // Implement the next action
               },
               child: Text('Next 1'),
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Color.fromRGBO(
+                        219, 113, 0, 1)), // Color of the "Next 1" button
+                shape: MaterialStateProperty.all<OutlinedBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
                 ),
+                minimumSize:
+                    MaterialStateProperty.all<Size>(Size(double.infinity, 50)),
               ),
             ),
           ],
